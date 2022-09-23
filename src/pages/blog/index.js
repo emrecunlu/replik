@@ -12,31 +12,24 @@ import { memo } from 'react'
 function Blog() {
 	const { slug } = useParams()
 
-	const { data, isLoading } = useQuery(
-		['blog_content'],
-		async () => {
-			const { data } = await axios.get(
-				process.env.REACT_APP_ENDPOINT + 'blog/' + slug + '/'
-			)
+	const { data, isLoading } = useQuery(['blog_content'], async () => {
+		const { data } = await axios.get(
+			process.env.REACT_APP_ENDPOINT + '/blog/' + slug + '/'
+		)
 
-			return data
-		},
-		{
-			retry: false,
-		}
-	)
-
-	window.onload = () => {
-		console.log('loaded!')
-	}
+		return data
+	})
 
 	if (!isLoading) {
 		return (
 			<>
-				<HeroBackground title={data[0].title} breadcrumb={['Home', 'Blog']} />
+				<HeroBackground
+					title="Blog Detail"
+					breadcrumb={['Home', 'Blogs', data.title]}
+				/>
 				<section id="blog">
 					<div className="container">
-						<Details blog={data[0]} />
+						<Details blog={data} />
 						<Populars />
 					</div>
 				</section>

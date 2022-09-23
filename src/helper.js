@@ -1,7 +1,7 @@
 export const resize = (path, w = 1200, h = 300) => {
 	return (
 		process.env.REACT_APP_ENDPOINT +
-		'resize/' +
+		'/resize/' +
 		path +
 		'/' +
 		w +
@@ -11,8 +11,21 @@ export const resize = (path, w = 1200, h = 300) => {
 	).toString()
 }
 
-export const getMonthName = index => {
-	const months = ['Ocak', 'Şubat', 'Mart', 'Nisan', 'Mayıs', 'Haziran', 'Temmuz', 'Ağustos', 'Eylül', 'Ekim', 'Kasım', 'Aralık']
+export const getMonthName = (index) => {
+	const months = [
+		'Ocak',
+		'Şubat',
+		'Mart',
+		'Nisan',
+		'Mayıs',
+		'Haziran',
+		'Temmuz',
+		'Ağustos',
+		'Eylül',
+		'Ekim',
+		'Kasım',
+		'Aralık',
+	]
 
 	return months[index + 1]
 }

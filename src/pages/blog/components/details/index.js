@@ -1,9 +1,12 @@
 import { LazyLoadImage } from 'react-lazy-load-image-component'
 import { resize } from '../../../../helper'
+import { getMonthName } from '../../../../helper'
 import MarkdownPreview from '@uiw/react-markdown-preview'
 import './details.scss'
 
 function Details({ blog }) {
+	const date = new Date(blog.created_at)
+
 	return (
 		<>
 			<article className="blog-inner">
@@ -18,11 +21,17 @@ function Details({ blog }) {
 				<div className="blog-created">
 					<div className="post-on created-item">
 						<h1>Post On: </h1>
-						<span>June 10 - 2021</span>
+						<span>
+							{getMonthName(date.getMonth()) +
+								' ' +
+								date.getDay() +
+								' - ' +
+								date.getFullYear()}
+						</span>
 					</div>
 					<div className="posted-by created-item">
 						<h1>Posted By: </h1>
-						<span>Herman Boone</span>
+						<span>{blog.author.username}</span>
 					</div>
 				</div>
 				<div className="blog-title">

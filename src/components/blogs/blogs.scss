@@ -15,11 +15,32 @@ section#blogs {
 			font-weight: 700;
 			font-family: var(--font-title);
 		}
-        .blogs {
-            display: flex;
-            margin-top: 50px;
-            gap: 30px;
+		.blogs {
+			display: flex;
+			margin-top: 50px;
+			gap: 30px;
 			flex-wrap: wrap;
-        }
+		}
+	}
+}
+
+.pagination-items {
+	display: flex;
+	align-items: center;
+	gap: 0 15px;
+	justify-content: center;
+	margin-top: 50px;
+	.pagination-item {
+		display: block;
+		font-size: 14px;
+		font-family: var(---font-title);
+		padding: 13px 20px;
+		font-weight: 700;
+		box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+		cursor: pointer;
+		&.active-page {
+			background-color: var(--site-main-color);
+			color: #fff;
+		}
 	}
 }

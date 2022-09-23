@@ -44,6 +44,10 @@ article {
 					font-weight: 700;
 					color: #0b0b31;
 					font-size: 20px;
+					transition: .35s;
+					&:hover {
+						color: var(--site-main-color);
+					}
 				}
 			}
 			.blog-desc {

@@ -24,13 +24,13 @@ function Blog({ blog }) {
 			<div className="blog-items">
 				<div className="blog-created">
 					<div className="blog-author blog-item">
-						<Link to={'blog/' + blog.slug}>
+						<Link to={'/blog/' + blog.slug}>
 							<FaUserAlt />
 							<span>{blog.author.username}</span>
 						</Link>
 					</div>
 					<div className="blog-date blog-item">
-						<Link>
+						<Link to={'/blog/' + blog.slug}>
 							<FaCalendarAlt />
 							<span>
 								{getMonthName(date.getMonth()) +
@@ -43,13 +43,13 @@ function Blog({ blog }) {
 					</div>
 				</div>
 				<div className="blog-title">
-					<Link to={'blog/' + blog.slug}>{blog.title}</Link>
+					<Link to={'/blog/' + blog.slug}>{blog.title}</Link>
 				</div>
 				<div className="blog-desc">
 					<p>{blog.meta_desc}</p>
 				</div>
 				<div className="blog-details">
-					<Link to={'blog/' + blog.slug}>Read More</Link>
+					<Link to={'/blog/' + blog.slug}>Read More</Link>
 				</div>
 			</div>
 		</article>

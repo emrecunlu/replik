@@ -7,12 +7,14 @@ import Loader from '../../components/loader'
 
 function MainLayout() {
 	return (
-		<AnimatedPage>
-			<Navbar />
-			<Outlet />
-			<Footer />
+		<>
+			<AnimatedPage>
+				<Navbar />
+				<Outlet />
+				<Footer />
+			</AnimatedPage>
 			<Loader visiblity={useIsFetching()} />
-		</AnimatedPage>
+		</>
 	)
 }
 

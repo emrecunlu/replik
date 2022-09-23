@@ -2,17 +2,20 @@ import Blog from './components/Blog'
 import './blogs.scss'
 import { useQuery } from '@tanstack/react-query'
 import axios from 'axios'
-import { useState } from 'react'
-import Pagination from '../pagination'
+import React, { useState } from 'react'
+import ReactPaginate from 'react-paginate'
 
 function Blogs({ limit, pagination }) {
 	const [page, setPage] = useState(0)
 
 	const fetchBlog = async () => {
 		const { data } = await axios.get(
-			`${process.env.REACT_APP_ENDPOINT}blog/?limit=${limit}&offset=${
-				page * limit
-			}`
+			process.env.REACT_APP_ENDPOINT +
+				'/blog/?limit=' +
+				limit +
+				'&offset=' +
+				limit * page +
+				'/'
 		)
 
 		return data
@@ -20,7 +23,6 @@ function Blogs({ limit, pagination }) {
 
 	const { data, isLoading } = useQuery(['blogs', page], fetchBlog, {
 		keepPreviousData: true,
-		staleTime: 5000
 	})
 
 	if (!isLoading) {
@@ -34,12 +36,20 @@ function Blogs({ limit, pagination }) {
 							<Blog key={blog.id} blog={blog} />
 						))}
 					</div>
-					{pagination && (
-						<Pagination
-							page={page}
-							setPage={setPage}
-							count={Math.ceil(data.count / limit)}
-						/>
+					{data?.results.length > 0 && (
+						<React.Fragment>
+							{pagination && (
+								<ReactPaginate
+									containerClassName="pagination-items"
+									pageLinkClassName="pagination-item"
+									activeLinkClassName="active-page"
+									previousClassName="pagination-item"
+									nextClassName="pagination-item"
+									onPageChange={({ selected }) => setPage(selected)}
+									pageCount={Math.ceil(data.count / limit)}
+								/>
+							)}
+						</React.Fragment>
 					)}
 				</div>
 			</section>

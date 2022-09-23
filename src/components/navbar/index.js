@@ -13,7 +13,7 @@ function Navbar() {
 	const { data } = useQuery(
 		['navbar'],
 		async () => {
-			const { data } = await axios('http://192.168.20.76:8000/api/navbar/')
+			const { data } = await axios(process.env.REACT_APP_ENDPOINT + '/navbar/')
 
 			return data
 		},
@@ -54,25 +54,22 @@ function Navbar() {
 								<li
 									key={nav.id}
 									className={classNames({
-										dropdown: nav?.child.length > 0,
+										dropdown: nav?.content.length > 0,
 									})}
 								>
-									<NavLink to={nav.slug}>
+									<NavLink to={nav.slug === '/' ? '/' : '/' + nav.slug}>
 										<span>{nav.menu}</span>
-										{nav?.child.length > 0 && <RiArrowDropDownLine size={24} />}
+										{nav?.content.length > 0 && (
+											<RiArrowDropDownLine size={24} />
+										)}
 									</NavLink>
-									{nav?.child.length > 0 && (
+									{nav?.content.length > 0 && (
 										<div className="dropdown-items">
 											<ul>
-												{nav?.child.map((parent) => (
-													<li key={parent?.id}>
-														<NavLink
-															state={{
-																path: nav.child,
-															}}
-															to={nav.slug + '/' + parent?.slug}
-														>
-															{parent.menu}
+												{nav?.content.map((child, i) => (
+													<li key={i}>
+														<NavLink to={nav.slug + '/' + child.slug}>
+															{child.title}
 														</NavLink>
 													</li>
 												))}

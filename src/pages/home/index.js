@@ -7,6 +7,7 @@ import Contact from '../../components/contact'
 import Blogs from '../../components/blogs'
 import { Link } from 'react-router-dom'
 import Customers from '../../components/customers'
+import { Helmet } from 'react-helmet'
 
 function Home() {
 	const solutions = [
@@ -133,14 +134,14 @@ function Home() {
 						</div>
 					</div>
 					<div className="area-image">
-						<img src="/img/home-font.png" alt="" />
+						<img src="/static/img/home-font.png" alt="" />
 					</div>
 				</div>
 				<div className="shape-effect">
-					<img src="/img/home-bottom-shape.png" alt="" />
+					<img src="/static/img/home-bottom-shape.png" alt="" />
 				</div>
-			</div>
-			<Solutions solutions={solutions} />
+			</div> 
+			<Solutions name="hizmetlerimiz" />
 			<Company company={company} />
 			<Overview
 				data={{

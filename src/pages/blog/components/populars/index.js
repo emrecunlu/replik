@@ -8,7 +8,7 @@ function Populars() {
 		['latest_blog'],
 		async () => {
 			const { data } = await axios.get(
-				process.env.REACT_APP_ENDPOINT + 'blog/?limit=3'
+				process.env.REACT_APP_ENDPOINT + '/blog/?limit=6'
 			)
 
 			return data
