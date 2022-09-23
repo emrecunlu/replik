@@ -1,0 +1,22 @@
+section#customers {
+  padding: var(--section-padding);
+  .container {
+    > h1 {
+      text-align: center;
+      font-family: var(--font-title);
+      font-weight: 700;
+      font-size: 42px;
+      padding-top: 20px;
+    }
+
+    > h2 {
+      text-align: center;
+      color: #FF9800;
+      font-weight: 700;
+      font-family: var(--font-title);
+    }
+    .customer-slides {
+      margin-top: 50px;
+    }
+  }
+}

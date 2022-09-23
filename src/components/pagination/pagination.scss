@@ -1,0 +1,26 @@
+.pagination-items {
+	display: flex;
+	justify-content: center;
+    margin-top: 50px;
+    ul {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        li {
+            display: block;
+            box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+            background: #fff;
+            padding: 15px 20px;
+            font-family: var(--font-title);
+            font-weight: 600;
+            font-size: 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            &.active {
+                background: var(--site-main-color);
+                color: #fff;
+                font-weight: 700;
+            }
+        }
+    }
+}

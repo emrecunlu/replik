@@ -1,0 +1,23 @@
+section#testimonial {
+    padding: var(--section-padding);
+    .container {
+        > h2 {
+            color: var(--section-highlight-color);
+            font-family: var(--font-title);
+            font-weight: var(--section-highlight-weight);
+            font-size: var(--section-highlight-size);
+            text-align: center;
+        }
+        > h1 {
+            color: var(--section-title-color);
+            font-family: var(--font-title);
+            font-weight: var(--section-title-weight);
+            font-size: var(--section-title-size);
+            text-align: center;
+            padding-top: var(--section-title-elevation);
+        }
+        .swiper {
+            margin-top: 30px;
+        }
+    }
+}

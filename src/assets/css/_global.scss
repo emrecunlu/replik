@@ -1,0 +1,56 @@
+@import 'reset';
+@import 'buttons';
+
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@300;400;500;600;700&family=Noto+Sans:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --font-title: 'Dosis', sans-serif;
+
+  --site-main-color: #7B68EE;
+
+  --section-padding: 100px 0;
+
+  --section-highlight-color: #FF9800;
+  --section-highlight-size: 18px;
+  --section-highlight-weight: 700;
+
+  --section-title-color: #0b0b31;
+  --section-title-size: 38px;
+  --section-title-weight: 700;
+  --section-title-elevation: 20px;
+
+  --footer-background: #1c1c23;
+  --footer-copyright-background: #212129;
+  --footer-primary-padding: 100px;
+  --footer-secondary-padding: 50px;
+}
+
+html, body {
+  height: 100%;
+  min-height: 100%;
+}
+
+body {
+  font-family: 'Noto Sans', sans-serif;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+section#content {
+  padding: var(--section-padding);
+  .container {
+    .content-image {
+      margin-bottom: 50px;
+      img {
+        width: 100%;
+      }
+    }
+  }
+}

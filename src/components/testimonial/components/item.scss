@@ -1,0 +1,43 @@
+article.testimonial {
+	background: #fafafa;
+	border-radius: 6px;
+	padding: 50px 40px;
+	display: flex;
+	flex-direction: column;
+	gap: 20px 0;
+	.star-rating {
+		ul {
+			display: flex;
+			justify-content: center;
+		}
+	}
+	.user-desc {
+		p {
+			text-align: center;
+			font-style: italic;
+			line-height: 35px;
+			font-size: 15px;
+			color: rgba(#000, 0.95);
+		}
+	}
+	.user-profile {
+		display: flex;
+		flex-direction: column;
+		gap: 15px 0;
+		text-align: center;
+		.user-img {
+			img {
+				border-radius: 100%;
+			}
+		}
+		.user-name {
+			font-family: var(--font-title);
+			font-weight: 600;
+			font-size: 20px;
+		}
+		.user-job {
+            font-family: var(--font-title);
+			font-weight: 600;
+		}
+	}
+}

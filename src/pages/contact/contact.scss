@@ -1,0 +1,25 @@
+section#contact-information {
+    padding: var(--section-padding);
+	.container {
+		> h1 {
+			text-align: center;
+			font-family: var(--font-title);
+			font-weight: 700;
+			font-size: 42px;
+			padding-top: 20px;
+		}
+
+		> h2 {
+			text-align: center;
+			color: #ff9800;
+			font-weight: 700;
+			font-family: var(--font-title);
+		}
+		.contact-items {
+			margin-top: 50px;
+			display: flex;
+			flex-wrap: wrap;
+			gap: 50px;
+		}
+	}
+}
