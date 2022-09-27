@@ -13,9 +13,7 @@ function Blog({ blog }) {
 			<div className="blog-thumbnail">
 				<Link to={'/blog/' + blog.slug}>
 					<LazyLoadImage
-						src={resize(blog.image, 350, 250)}
-						width={350}
-						height={250}
+						src={resize(blog.image, 450, 370)}
 						alt={blog.title}
 						effect="blur"
 					/>

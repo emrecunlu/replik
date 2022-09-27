@@ -4,9 +4,11 @@ import { useQuery } from '@tanstack/react-query'
 import axios from 'axios'
 import React, { useState } from 'react'
 import ReactPaginate from 'react-paginate'
+import { useVisibilityHook } from 'react-observer-api'
 
 function Blogs({ limit, pagination }) {
 	const [page, setPage] = useState(0)
+	const { setElement, isVisible } = useVisibilityHook()
 
 	const fetchBlog = async () => {
 		const { data } = await axios.get(
@@ -23,11 +25,12 @@ function Blogs({ limit, pagination }) {
 
 	const { data, isLoading } = useQuery(['blogs', page], fetchBlog, {
 		keepPreviousData: true,
+		enabled: isVisible,
 	})
 
-	if (!isLoading) {
-		return (
-			<section id="blogs">
+	return (
+		<section ref={setElement} id="blogs">
+			{!isLoading && (
 				<div className="container">
 					<h2>BLOG & ARTICLE</h2>
 					<h1>Recent Blog</h1>
@@ -52,9 +55,9 @@ function Blogs({ limit, pagination }) {
 						</React.Fragment>
 					)}
 				</div>
-			</section>
-		)
-	}
+			)}
+		</section>
+	)
 }
 
 export default Blogs

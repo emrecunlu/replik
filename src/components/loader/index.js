@@ -1,14 +1,9 @@
 import { BounceLoader } from 'react-spinners'
 import './loader.scss'
 
-function Loader({ visiblity = true }) {
+function Loader() {
 	return (
-		<div
-			className="loader"
-			style={{
-				visibility: visiblity ? 'visible' : 'hidden',
-			}}
-		>
+		<div className="loader">
 			<BounceLoader size={48} />
 		</div>
 	)

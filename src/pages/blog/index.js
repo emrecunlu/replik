@@ -8,6 +8,7 @@ import Populars from './components/populars'
 import { useQuery } from '@tanstack/react-query'
 import axios from 'axios'
 import { memo } from 'react'
+import { Helmet } from 'react-helmet'
 
 function Blog() {
 	const { slug } = useParams()
@@ -23,9 +24,12 @@ function Blog() {
 	if (!isLoading) {
 		return (
 			<>
+				<Helmet>
+					<title>Merhaba</title>
+				</Helmet>
 				<HeroBackground
 					title="Blog Detail"
-					breadcrumb={['Home', 'Blogs', data.title]}
+					breadcrumb={['Home', data.title.slice(0, 20) + ' ...']}
 				/>
 				<section id="blog">
 					<div className="container">

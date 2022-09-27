@@ -1,89 +1,135 @@
 .home-area {
-  width: 100%;
-  height: 100vh;
-  position: relative;
-  background: linear-gradient(to bottom, #370b6f, #00429b, #006dba, #0095ce, #2dbcdc);
-  .container {
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    .area-text {
-      position: relative;
-      z-index: 1;
-      padding-right: 50px;
-      width: 50%;
-      display: flex;
-      flex-direction: column;
-      gap: 30px 0;
-      h1 {
-        color: #fff;
-        font-family: var(--font-title);
-        font-weight: 700;
-        font-size: 54px;
-      }
-      span {
-        color: rgba(#fff, .85);
-        font-weight: 600;
-        line-height: 30px;
-        font-family: var(--font-title);
-      }
-      .text-area-buttons {
-        display: flex;
-        gap: 0 20px;
-        a {
-          background: #fff;
-          border-radius: 6px;
-          font-size: 14px;
-          font-family: var(--font-title);
-          font-weight: 600;
-          padding: 15px 40px;
-          cursor: pointer;
-          position: relative;
-          overflow: hidden;
-          &:last-child {
-            background: rgba(#3e57d0, .75);
-            color: #fff;
-          }
-        }
-      }
-    }
-    .area-image {
-      position: relative;
-      z-index: 1;
-      flex: 1;
-      animation: image-run 5s linear infinite alternate;
-      img {
-        width: 100%;
-      }
-    }
-  }
-  .shape-effect {
-    position: absolute;
-    bottom: -5px;
-    img {
-      width: 100%;
-      height: 500px;
-    }
-    &::after {
-      content: '';
-      display: block;
-      width: 100%;
-      height: 2px;
-      background: #fff;
-      margin-top: -5px;
-    }
-  }
+	width: 100%;
+	height: 100vh;
+	position: relative;
+	background: linear-gradient(
+		to bottom,
+		#370b6f,
+		#00429b,
+		#006dba,
+		#0095ce,
+		#2dbcdc
+	);
+	@media (max-width: 768px) {
+		.shape-effect {
+			img {
+				height: 200px !important;
+			}
+		}
+	}
+	@media (max-width: 556px) {
+		.shape-effect {
+			img {
+				height: 100px !important;
+			}
+		}
+	}
+	@media (max-width: 992px) {
+		.container {
+			.area-image {
+				display: none;
+			}
+			.area-text {
+				padding: 0 !important;
+				width: 100% !important;
+				text-align: center !important; 
+				justify-content: center;
+				align-items: center !important;
+				h1 {
+					font-size: 32px !important;
+				}
+				h2 {
+					font-size: 14px !important;
+				}
+			}
+		}
+		.shape-effect {
+			img {
+				height: 300px !important;
+			}
+		}
+	}
+	.container {
+		height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		.area-text {
+			position: relative;
+			z-index: 1;
+			padding-right: 50px;
+			width: 50%;
+			display: flex;
+			flex-direction: column;
+			gap: 30px 0;
+			h1 {
+				color: #fff;
+				font-family: var(--font-title);
+				font-weight: 700;
+				font-size: 54px;
+			}
+			span {
+				color: rgba(#fff, 0.85);
+				font-weight: 600;
+				line-height: 30px;
+				font-family: var(--font-title);
+			}
+			.text-area-buttons {
+				display: flex;
+				gap: 0 20px;
+				a {
+					background: #fff;
+					border-radius: 6px;
+					font-size: 14px;
+					font-family: var(--font-title);
+					font-weight: 600;
+					padding: 15px 40px;
+					cursor: pointer;
+					position: relative;
+					overflow: hidden;
+					&:last-child {
+						background: rgba(#3e57d0, 0.75);
+						color: #fff;
+					}
+				}
+			}
+		}
+		.area-image {
+			position: relative;
+			z-index: 1;
+			flex: 1;
+			animation: image-run 5s linear infinite alternate;
+			img {
+				width: 100%;
+			}
+		}
+	}
+	.shape-effect {
+		position: absolute;
+		bottom: -5px;
+		img {
+			width: 100%;
+			height: 500px;
+		}
+		&::after {
+			content: '';
+			display: block;
+			width: 100%;
+			height: 2px;
+			background: #fff;
+			margin-top: -5px;
+		}
+	}
 }
 
 @keyframes image-run {
-  0% {
-    transform: translateY(-10px);
-  }
-  50% {
-    transform: translateY(5px);
-  }
-  100% {
-    transform: translateY(10px);
-  }
+	0% {
+		transform: translateY(-10px);
+	}
+	50% {
+		transform: translateY(5px);
+	}
+	100% {
+		transform: translateY(10px);
+	}
 }

@@ -9,6 +9,12 @@ article.contact-item {
     padding: 50px 30px;
     text-align: center;
     border-top: 3px solid var(--site-main-color);
+    @media (max-width: 992px) {
+        --columns: 2;
+    }
+    @media (max-width: 768px) {
+        --columns: 1;
+    }
     .item-title {
         h1 {
             font-family: var(--font-title);

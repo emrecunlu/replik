@@ -5,6 +5,7 @@ import Testimonial from '../../components/testimonial'
 import './about.scss'
 
 function About() {
+
 	const company = {
 		title: 'Providing your business with a quality IT service is our passion.',
 		desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua enim ad minim veniam, nostrud',

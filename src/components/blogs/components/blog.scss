@@ -8,10 +8,18 @@ article {
 		width: calc(
 			(100% / var(--columns)) - var(--gap) + (var(--gap) / var(--columns))
 		);
+		@media (max-width: 992px) {
+			--columns: 2;
+		}
+		@media (max-width: 768px) {
+			--columns: 1;
+		}
 		.blog-thumbnail {
-			img {
+			span {
 				width: 100%;
-				overflow: hidden;
+				img {
+					width: 100% !important;
+				}
 			}
 		}
 		.blog-items {

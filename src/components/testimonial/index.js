@@ -2,11 +2,31 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import './testimonial.scss'
 import TestimonialItem from './components/TestimonialItem'
 import { Autoplay } from 'swiper'
+import { useQuery } from '@tanstack/react-query'
+import axios from 'axios'
+import { useVisibilityHook } from 'react-observer-api'
 
-function Testimonial({ testimonials }) {
+function Testimonial() {
+	const { setElement, isVisible } = useVisibilityHook()
+
+	const { data, isLoading } = useQuery(
+		['testimonials'],
+		async () => {
+			const { data } = await axios.get(
+				process.env.REACT_APP_ENDPOINT + '/testimonials/'
+			)
+
+			return data
+		},
+		{
+			enabled: isVisible,
+			staleTime: Infinity,
+		}
+	)
+
 	return (
-		<>
-			<section id="testimonial">
+		<section ref={setElement} id="testimonial">
+			{!isLoading && (
 				<div className="container">
 					<h2>TESTIMONIAL</h2>
 					<h1>What Our Client Say</h1>
@@ -19,10 +39,21 @@ function Testimonial({ testimonials }) {
 							pauseOnMouseEnter: true,
 							disableOnInteraction: false,
 						}}
+						breakpoints={{
+							1200: {
+								slidesPerView: 3,
+							},
+							768: {
+								slidesPerView: 2,
+							},
+							0: {
+								slidesPerView: 1,
+							},
+						}}
 						loop={true}
 						modules={[Autoplay]}
 					>
-						{testimonials.map((testimonial) => (
+						{data.map((testimonial) => (
 							<SwiperSlide>
 								<TestimonialItem
 									key={testimonial.id}
@@ -32,8 +63,8 @@ function Testimonial({ testimonials }) {
 						))}
 					</Swiper>
 				</div>
-			</section>
-		</>
+			)}
+		</section>
 	)
 }
 

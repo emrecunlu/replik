@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f0a7ecd7-d199-4b45-92d5-c40f9163cac3" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/css/_global.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/css/_global.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/blogs/components/Blog.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/blogs/components/Blog.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/blogs/components/blog.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/blogs/components/blog.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/blogs/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/blogs/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/company/company.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/company/company.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/contact/contact.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/contact/contact.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/contact/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/contact/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/content/content.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/content/content.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/content/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/content/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/customers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/customers/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/footer/footer.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/footer/footer.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/hero/hero.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/hero/hero.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/loader/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/loader/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/navbar/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/navbar/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/navbar/navbar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/navbar/navbar.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/overview/overview.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/overview/overview.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/solutions/solutions.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/solutions/solutions.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/testimonial/components/TestimonialItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/testimonial/components/TestimonialItem.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/testimonial/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/testimonial/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/helper.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/helper.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/about/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/about/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/blog/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/blog/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/contact/components/item.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/contact/components/item.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/home/home.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/home/home.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/home/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/home/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/layouts/MainLayout.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/layouts/MainLayout.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2FLeNymSxjjHuaxiGa0PaBkaWH4" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Project.color&quot;: &quot;1d1c51&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/emreunlu/Desktop/replik&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f0a7ecd7-d199-4b45-92d5-c40f9163cac3" name="Changes" comment="" />
+      <created>1664275760396</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1664275760396</updated>
+      <workItem from="1664275761554" duration="18000" />
+      <workItem from="1664276236789" duration="208000" />
+      <workItem from="1664276559844" duration="1623000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

@@ -24,7 +24,12 @@ section#solutions {
 			--columns: 3;
 			flex-wrap: wrap;
 			gap: var(--gap);
-
+			@media (max-width: 1200px) {
+				--columns: 2;
+			}
+			@media (max-width: 768px) {
+				--columns: 1;
+			}
 			.solution {
 				transition: 0.5s;
 				box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
@@ -33,7 +38,6 @@ section#solutions {
 				width: calc(
 					(100% / var(--columns)) - var(--gap) + (var(--gap) / var(--columns))
 				);
-
 				&:hover {
 					transform: translateY(-1em);
 					.solution-icon {
@@ -52,7 +56,7 @@ section#solutions {
 				}
 
 				.solution-name {
-					margin-top: 20px;
+					margin-top: 50px;
 
 					h1 {
 						font-size: 20px;

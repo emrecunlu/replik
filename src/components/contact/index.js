@@ -5,12 +5,16 @@ import './contact.scss'
 import toast, { Toaster } from 'react-hot-toast'
 import { formSchema } from './formSchema'
 import axios from 'axios'
+import { getCookie } from '../../helper'
 
 function Contact() {
 	const submitHandle = async (values, { resetForm }) => {
 		const res = await axios.post(
-			process.env.REACT_APP_ENDPOINT + 'contact/',
-			JSON.stringify(values),
+			process.env.REACT_APP_ENDPOINT + '/contact/',
+			JSON.stringify({
+				...values,
+				csrftoken: getCookie('csrftoken'),
+			}),
 			{
 				headers: {
 					'Content-Type': 'application/json',
@@ -18,7 +22,8 @@ function Contact() {
 			}
 		)
 
-		if (res?.status === 201) toast.success('Mesajınız iletildi!')
+		if (res?.status === 201 || res?.status === 200)
+			toast.success('Mesajınız iletildi!')
 		else toast.error('İletişim bilgilerinde hata!')
 
 		resetForm()

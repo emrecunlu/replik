@@ -1,19 +1,22 @@
-import { RiArrowDropDownLine } from 'react-icons/ri'
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
+import { FaAngleDown } from 'react-icons/fa'
+import { IoIosArrowDropdownCircle } from 'react-icons/io'
 import './navbar.scss'
-import { useEffect, useRef } from 'react'
-import { memo } from 'react'
-import { useQuery } from '@tanstack/react-query'
+import React, { useState } from 'react'
 import classNames from 'classnames'
+import { AnimatePresence, motion } from 'framer-motion'
+import { useEffect } from 'react'
+import { useRef } from 'react'
+import { useQuery } from '@tanstack/react-query'
 import axios from 'axios'
 
 function Navbar() {
-	const navbar = useRef()
-
-	const { data } = useQuery(
+	const { data, isLoading } = useQuery(
 		['navbar'],
 		async () => {
-			const { data } = await axios(process.env.REACT_APP_ENDPOINT + '/navbar/')
+			const { data } = await axios.get(
+				process.env.REACT_APP_ENDPOINT + '/navbar/'
+			)
 
 			return data
 		},
@@ -22,73 +25,145 @@ function Navbar() {
 		}
 	)
 
-	const scrollDetected = () => {
-		if (window.scrollY > navbar.current?.offsetHeight * 1.2) {
+	const [menu, setMenu] = useState(false)
+
+	const navbar = useRef()
+
+	const clickHandle = ({ target }) => {
+		target.closest('li').querySelector('ul').classList.toggle('active')
+	}
+
+	const scrollMe = () => {
+		if (window.scrollY * 1.2 >= navbar.current.offsetHeight)
 			navbar.current?.classList.add('sticky')
-		} else {
-			navbar.current?.classList.remove('sticky')
-		}
+		else navbar.current?.classList.remove('sticky')
 	}
 
 	useEffect(() => {
-		window.addEventListener('scroll', scrollDetected)
+		window.addEventListener('scroll', scrollMe)
 
-		return () => window.removeEventListener('scrol', scrollDetected)
+		return () => {
+			window.removeEventListener('scroll', scrollMe)
+		}
 	}, [])
 
-	return (
-		<>
-			<nav ref={navbar}>
-				<div className="container">
-					<div className="navbar-logo">
-						<NavLink to="/">
-							<img src="/uploads/logo.png" alt="" />
-						</NavLink>
-						<NavLink className="logo-dark" to="/">
-							<img src="/uploads/logo-black.png" alt="" />
-						</NavLink>
-					</div>
-					<div className="navbar-items">
-						<ul>
-							{data?.map((nav) => (
-								<li
-									key={nav.id}
-									className={classNames({
-										dropdown: nav?.content.length > 0,
-									})}
-								>
-									<NavLink to={nav.slug === '/' ? '/' : '/' + nav.slug}>
-										<span>{nav.menu}</span>
-										{nav?.content.length > 0 && (
-											<RiArrowDropDownLine size={24} />
-										)}
-									</NavLink>
-									{nav?.content.length > 0 && (
-										<div className="dropdown-items">
+	console.log(data)
+
+	if (!isLoading) {
+		return (
+			<div ref={navbar} className="navbar-area">
+				<nav>
+					<div className="container">
+						<div className="navbar-logo">
+							<Link to="/">
+								<img className="logo-light" src="/static/img/logo.png" alt="" />
+								<img
+									className="logo-dark"
+									src="/static/img/logo-black.png"
+									alt=""
+								/>
+							</Link>
+						</div>
+						<div className="navbar-items">
+							<ul>
+								{data.map((nav) => (
+									<li
+										key={nav.id}
+										className={classNames({
+											dropdown: nav.content.length > 0,
+										})}
+									>
+										<NavLink to={nav.slug === '/' ? '/' : nav.slug + '/'}>
+											{nav.menu}
+											{nav.content.length > 0 && (
+												<FaAngleDown size={15} className="dropdown-icon" />
+											)}
+										</NavLink>
+										{nav.content.length > 0 && (
 											<ul>
-												{nav?.content.map((child, i) => (
+												{nav.content.map((child, i) => (
 													<li key={i}>
-														<NavLink to={nav.slug + '/' + child.slug}>
+														<NavLink to={'/' + nav.slug + '/' + child.slug + '/'}>
 															{child.title}
 														</NavLink>
 													</li>
 												))}
 											</ul>
-										</div>
-									)}
-								</li>
-							))}
-						</ul>
+										)}
+									</li>
+								))}
+							</ul>
+						</div>
+						<div className="navbar-support">
+							<Link to="/contact">Contact Me</Link>
+						</div>
+						<div
+							className={classNames({
+								'navbar-toggler': true,
+								active: menu,
+							})}
+							onClick={() => setMenu((menu) => !menu)}
+						>
+							<div className="toggler"></div>
+						</div>
 					</div>
-					<div className="contact-button">
-						<NavLink to="/contact" className="hover-filled-slide-right">
-							Get It Suppor
-						</NavLink>
-					</div>
-				</div>
-			</nav>
-		</>
-	)
+				</nav>
+				<AnimatePresence>
+					{menu && (
+						<motion.div
+							initial={{
+								opacity: 0,
+								y: -200,
+							}}
+							animate={{
+								opacity: 1,
+								y: 0,
+							}}
+							exit={{
+								opacity: 0,
+								y: -200,
+							}}
+							className="navbar-responsive-menu"
+						>
+							<div className="container">
+								<ul>
+									{data.map((nav) => (
+										<li
+											className={classNames({
+												dropdown: nav.content.length > 0,
+											})}
+										>
+											{(nav.content.length > 0 && (
+												<React.Fragment key={nav.id}>
+													<span onClick={clickHandle}>
+														{nav.menu}
+														<IoIosArrowDropdownCircle />
+													</span>
+													<ul>
+														{nav.content.map((child, i) => (
+															<li key={i}>
+																<NavLink to={'/' + nav.slug + '/' + child.slug + '/'}>
+																	{child.title}
+																</NavLink>
+															</li>
+														))}
+													</ul>
+												</React.Fragment>
+											)) || (
+												<NavLink to={nav.slug === '/' ? '/' : nav.slug + '/'}>
+													{nav.menu}
+												</NavLink>
+											)}
+										</li>
+									))}
+								</ul>
+							</div>
+						</motion.div>
+					)}
+				</AnimatePresence>
+			</div>
+		)
+	}
 }
 
-export default memo(Navbar)
+export default Navbar
