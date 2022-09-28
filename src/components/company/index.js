@@ -1,41 +1,48 @@
-import { NavLink } from 'react-router-dom'
+import {NavLink} from 'react-router-dom'
 import './company.scss'
+import {useSelector} from "react-redux";
+import {resize} from "../../helper";
 
-function Company({ company }) {
-	return (
-		<>
-			<section id="company">
-				<div className="container">
-					<div className="company-details">
-						<h2>ABOUT YOUR COMPANY</h2>
-						<h1>{company.title}</h1>
-						<span>{company.desc}</span>
-						<div className="skills">
-							{company.skills.map((skill) => (
-								<div className="skill" key={skill.id}>
-									<div className="skill-detail">
-										<h1>{skill.skill}</h1>
-										<h2>{skill.percent}%</h2>
-									</div>
-									<div className="percent-bar">
+function Company({company}) {
+
+    const {config} = useSelector(state => state.config)
+
+    console.log(config)
+
+    return (
+        <>
+            <section id="company">
+                <div className="container">
+                    <div className="company-details">
+                        <h2>{config.company_about.label}</h2>
+                        <h1>{config.company_about.value}</h1>
+                        <span>{config.company_desc.value}</span>
+                        <div className="skills">
+                            {config.skills.value.split('|').map((skill, i) => (
+                                <div className="skill" key={i}>
+                                    <div className="skill-detail">
+                                        <h1>{skill.split(',')[0]}</h1>
+                                        <h2>{skill.split(',')[1]}%</h2>
+                                    </div>
+                                    <div className="percent-bar">
 										<span
-											style={{
-												width: `${skill.percent}%`,
-											}}
-										></span>
-									</div>
-								</div>
-							))}
-						</div>
-						<NavLink to="/">Learn More</NavLink>
-					</div>
-					<div className="company-image">
-						<img src={company.image} alt="" />
-					</div>
-				</div>
-			</section>
-		</>
-	)
+                                            style={{
+                                                width: `${skill.split(',')[1]}%`,
+                                            }}
+                                        ></span>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                        <NavLink to="/">Learn More</NavLink>
+                    </div>
+                    <div className="company-image">
+                        <img src={resize(config.company_about.image, 500, 500)} alt=""/>
+                    </div>
+                </div>
+            </section>
+        </>
+    )
 }
 
 export default Company

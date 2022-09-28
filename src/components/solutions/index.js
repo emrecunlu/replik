@@ -4,13 +4,19 @@ import { useQuery } from '@tanstack/react-query'
 import axios from 'axios'
 
 function Solutions({ name }) {
-	const { data, isLoading } = useQuery(['content-items'], async () => {
-		const { data } = await axios.get(
-			process.env.REACT_APP_ENDPOINT + '/content/'
-		)
+	const { data, isLoading } = useQuery(
+		['contents'],
+		async () => {
+			const { data } = await axios.get(
+				process.env.REACT_APP_ENDPOINT + '/content/'
+			)
 
-		return data
-	})
+			return data
+		},
+		{
+			staleTime: Infinity,
+		}
+	)
 
 	if (!isLoading) {
 		const items = data.filter((item) => item.navbar.slug === name)

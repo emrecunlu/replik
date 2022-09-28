@@ -54,9 +54,8 @@ function Testimonial() {
 						modules={[Autoplay]}
 					>
 						{data.map((testimonial) => (
-							<SwiperSlide>
+							<SwiperSlide key={testimonial.id}>
 								<TestimonialItem
-									key={testimonial.id}
 									testimonial={testimonial}
 								/>
 							</SwiperSlide>

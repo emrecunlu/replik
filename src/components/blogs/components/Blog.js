@@ -1,6 +1,6 @@
 import { FaUserAlt, FaCalendarAlt } from 'react-icons/fa'
 import { LazyLoadImage } from 'react-lazy-load-image-component'
-import { Link } from 'react-router-dom'
+import {Link, useLocation} from 'react-router-dom'
 import { resize } from '../../../helper'
 import './blog.scss'
 import { getMonthName } from '../../../helper'
