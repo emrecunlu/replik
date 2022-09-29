@@ -7,7 +7,6 @@ import './assets/css/_global.scss'
 import 'react-lazy-load-image-component/src/effects/blur.css'
 import 'swiper/css'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import { Provider } from 'react-redux'
 import { store } from './store'
 
@@ -25,7 +24,6 @@ root.render(
 			<BrowserRouter>
 				<App />
 			</BrowserRouter>
-			<ReactQueryDevtools />
 		</QueryClientProvider>
 	</Provider>
 )

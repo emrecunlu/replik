@@ -7,8 +7,6 @@ function Company({company}) {
 
     const {config} = useSelector(state => state.config)
 
-    console.log(config)
-
     return (
         <>
             <section id="company">

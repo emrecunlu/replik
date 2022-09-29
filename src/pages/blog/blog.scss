@@ -4,5 +4,9 @@ section#blog {
         display: flex;
         justify-content: space-between;
         gap: 0 30px;
+        @media (max-width: 1200px) {
+            gap: 30px;
+            flex-wrap: wrap;
+        }
     }
 }

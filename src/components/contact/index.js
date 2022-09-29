@@ -26,6 +26,8 @@ function Contact() {
 			toast.success('Mesajınız iletildi!')
 		else toast.error('İletişim bilgilerinde hata!')
 
+		console.log(res.status)
+
 		resetForm()
 	}
 

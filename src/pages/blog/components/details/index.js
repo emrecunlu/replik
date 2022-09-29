@@ -11,12 +11,7 @@ function Details({ blog }) {
 		<>
 			<article className="blog-inner">
 				<div className="blog-image">
-					<LazyLoadImage
-						src={resize(blog.image, 800, 600)}
-						width={800}
-						height={600}
-						effect="blur"
-					/>
+					<img src={resize(blog.image, 800, 600)} alt={blog.title} />
 				</div>
 				<div className="blog-created">
 					<div className="post-on created-item">

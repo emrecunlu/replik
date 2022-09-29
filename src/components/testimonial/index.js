@@ -56,6 +56,7 @@ function Testimonial() {
 						{data.map((testimonial) => (
 							<SwiperSlide key={testimonial.id}>
 								<TestimonialItem
+									key={testimonial.id}
 									testimonial={testimonial}
 								/>
 							</SwiperSlide>
