@@ -4,15 +4,19 @@ import { LazyLoadImage } from 'react-lazy-load-image-component'
 import { useParams } from 'react-router-dom'
 import { resize } from '../../helper'
 import HeroBackground from '../hero'
-import MarkdownPreview from '@uiw/react-markdown-preview'
 import './content.scss'
 import Seo from '../meta'
 import { useVisibilityHook } from 'react-observer-api'
+import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
+
+import './markdown.css'
 
 function Content() {
 	const { isVisible, setElement } = useVisibilityHook()
 	const params = useParams()
 
+	
 	const { data, isLoading } = useQuery(
 		['content', params?.slug],
 		async () => {
@@ -32,9 +36,10 @@ function Content() {
 		<section ref={setElement} id="content-page">
 			{!isLoading && (
 				<>
-					<Seo
+					<Seo	
 						title={'Replik Yazılım | ' + data.title}
-						image={resize(data.image, 300, 300)}
+						image={`/static/img/${data.image}`}
+						description={data.desc}
 					/>
 					<HeroBackground
 						title={data.title}
@@ -46,14 +51,16 @@ function Content() {
 							<h1>{data.title}</h1>
 							<hr />
 							<div className="content-details">
-								{data.image !== null && (
+								{data.image !== "" && (
 									<div className="content-image">
 										<LazyLoadImage src={resize(data.image, 1200, 500)} />
 									</div>
 								)}
-								<div className="content-markdown">
-									<MarkdownPreview source={data.content_markdown} />
-								</div>
+								<ReactMarkdown
+									children={data.content_markdown}
+									remarkPlugins={[remarkGfm]}
+									className="markdown-body"
+								/>
 							</div>
 						</div>
 					</section>

@@ -9,6 +9,7 @@ import { useEffect } from 'react'
 import { useRef } from 'react'
 import { useQuery } from '@tanstack/react-query'
 import axios from 'axios'
+import { useSelector } from 'react-redux'
 
 function Navbar() {
 	const { data, isLoading } = useQuery(
@@ -24,6 +25,8 @@ function Navbar() {
 			staleTime: Infinity,
 		}
 	)
+
+	const { config } = useSelector((state) => state.config)
 
 	const [menu, setMenu] = useState(false)
 
@@ -47,7 +50,6 @@ function Navbar() {
 		}
 	}, [])
 
-
 	if (!isLoading) {
 		return (
 			<div ref={navbar} className="navbar-area">
@@ -55,11 +57,15 @@ function Navbar() {
 					<div className="container">
 						<div className="navbar-logo">
 							<Link to="/">
-								<img className="logo-light" src="/static/img/logo.png" alt="" />
+								<img	
+									className="logo-light"
+										src={`/static/img/${config.logo_white}`}
+									alt="Logo White"
+								/>
 								<img
 									className="logo-dark"
-									src="/static/img/logo-black.png"
-									alt=""
+									src={`/static/img/${config.logo_dark}`}
+									alt="Logo Dark"
 								/>
 							</Link>
 						</div>
@@ -72,7 +78,7 @@ function Navbar() {
 											dropdown: nav.content.length > 0,
 										})}
 									>
-										<NavLink to={nav.slug === '/' ? '/' : nav.slug + '/'}>
+										<NavLink to={nav.slug === '/' ? '/' : nav.slug}>
 											{nav.menu}
 											{nav.content.length > 0 && (
 												<FaAngleDown size={15} className="dropdown-icon" />
@@ -82,7 +88,7 @@ function Navbar() {
 											<ul>
 												{nav.content.map((child, i) => (
 													<li key={i}>
-														<NavLink to={'/' + nav.slug + '/' + child.slug + '/'}>
+														<NavLink to={'/' + nav.slug + '/' + child.slug}>
 															{child.title}
 														</NavLink>
 													</li>
@@ -94,7 +100,7 @@ function Navbar() {
 							</ul>
 						</div>
 						<div className="navbar-support">
-							<Link to="/contact">Contact Me</Link>
+							<Link to="/iletisim">İletişime Geç</Link>
 						</div>
 						<div
 							className={classNames({
@@ -141,7 +147,7 @@ function Navbar() {
 													<ul>
 														{nav.content.map((child, i) => (
 															<li key={i}>
-																<NavLink to={'/' + nav.slug + '/' + child.slug + '/'}>
+																<NavLink to={'/' + nav.slug + '/' + child.slug}>
 																	{child.title}
 																</NavLink>
 															</li>
@@ -149,7 +155,7 @@ function Navbar() {
 													</ul>
 												</React.Fragment>
 											)) || (
-												<NavLink to={nav.slug === '/' ? '/' : nav.slug + '/'}>
+												<NavLink to={nav.slug === '/' ? '/' : nav.slug}>
 													{nav.menu}
 												</NavLink>
 											)}

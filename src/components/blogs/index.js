@@ -32,8 +32,8 @@ function Blogs({ limit, pagination }) {
 		<section ref={setElement} id="blogs">
 			{!isLoading && (
 				<div className="container">
-					<h2>BLOG & ARTICLE</h2>
-					<h1>Recent Blog</h1>
+					<h2>Blog</h2>
+					<h1>Blog Yazıları</h1>
 					<div className="blogs">
 						{data.results.map((blog) => (
 							<Blog key={blog.id} blog={blog} />
@@ -50,6 +50,8 @@ function Blogs({ limit, pagination }) {
 									nextClassName="pagination-item"
 									onPageChange={({ selected }) => setPage(selected)}
 									pageCount={Math.ceil(data.count / limit)}
+									previousLabel="Geri"
+									nextLabel="İleri"
 								/>
 							)}
 						</React.Fragment>

@@ -8,7 +8,7 @@ function BlogsPage() {
     return (
         <>
             <Seo title="Replik Yazılım | Bloglar"/>
-            <HeroBackground title="Blogs" breadcrumb={['Home', 'Blogs']}/>
+            <HeroBackground title="Blog Yazıları" breadcrumb={['Anasayfa', 'Blog Yazıları']}/>
             <Blogs pagination={true} limit={6}/>
         </>
     )

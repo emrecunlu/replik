@@ -1,26 +1,24 @@
-import {Outlet, useLocation} from 'react-router-dom'
+import { Outlet } from 'react-router-dom'
 import Navbar from '../../components/navbar'
 import Footer from '../../components/footer'
 import AnimatedPage from '../AnimatedPage'
-import {useIsFetching} from '@tanstack/react-query'
 import Loader from '../../components/loader'
-import {useEffect} from 'react'
-import {useSelector} from 'react-redux'
-import {motion} from 'framer-motion'
-import {useState} from 'react'
+import { useSelector } from 'react-redux'
 
 function MainLayout() {
-    const {loading} = useSelector((state) => state.config)
+	const { loading, config } = useSelector((state) => state.config)
 
-    if (!loading) {
-        return (
-            <AnimatedPage>
-                <Navbar/>
-                <Outlet/>
-                <Footer/>
-            </AnimatedPage>
-        )
-    } else <Loader/>
+	console.log(config)
+
+	if (loading) return <Loader />
+
+	return (
+		<AnimatedPage>
+			<Navbar />
+			<Outlet />
+			<Footer />
+		</AnimatedPage>
+	)
 }
 
 export default MainLayout

@@ -7,7 +7,7 @@ function Corporate() {
         <>
             <Seo title="Replik Yazılım | Kurumsal"/>
             <HeroBackground title="Kurumsal" breadcrumb={['Anasayfa', 'Kurumsal']}/>
-            <Solutions name="kurumsal"/>
+            <Solutions name="kurumsal" title="Kurumsal" subtitle="Kurumsal Sayfalarımız"/>
         </>
     )
 }

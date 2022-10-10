@@ -29,8 +29,8 @@ function Blog() {
 					image={resize(data.image, 500, 500)}
 				/>
 				<HeroBackground
-					title="Blog Detail"
-					breadcrumb={['Home', data.title.slice(0, 20) + ' ...']}
+					title="Blog Yazısı"
+					breadcrumb={['Anasayfa', data.title.slice(0, 20) + ' ...']}
 				/>
 				<section id="blog">
 					<div className="container">

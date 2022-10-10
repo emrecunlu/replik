@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query'
 import axios from 'axios'
 
-function Solutions({ name }) {
+function Solutions({ name, title, subtitle }) {
 	const { data, isLoading } = useQuery(
 		['contents'],
 		async () => {
@@ -19,14 +19,16 @@ function Solutions({ name }) {
 	)
 
 	if (!isLoading) {
-		const items = data.filter((item) => item.navbar.slug === name)
+		const items = data.filter((item) => item.navbar.slug.replace('/', '') === name)
+
+		console.log(data)
 
 		return (
 			<>
 				<section id="solutions">
 					<div className="container">
-						<h2>WHAT WE PROVIDE</h2>
-						<h1>IT Solutions</h1>
+						<h2>{title}</h2>
+						<h1>{subtitle}</h1>
 						<div className="solutions">
 							{items.map((item) => (
 								<div key={item.id} className="solution">
@@ -43,7 +45,7 @@ function Solutions({ name }) {
 										</span>
 									</div>
 									<Link to={'/' + item.navbar.slug + '/' + item.slug}>
-										Read More
+										Daha Fazla
 									</Link>
 								</div>
 							))}

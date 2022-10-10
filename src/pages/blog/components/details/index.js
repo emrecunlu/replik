@@ -15,7 +15,7 @@ function Details({ blog }) {
 				</div>
 				<div className="blog-created">
 					<div className="post-on created-item">
-						<h1>Post On: </h1>
+						<h1>Tarih: </h1>
 						<span>
 							{getMonthName(date.getMonth()) +
 								' ' +
@@ -25,7 +25,7 @@ function Details({ blog }) {
 						</span>
 					</div>
 					<div className="posted-by created-item">
-						<h1>Posted By: </h1>
+						<h1>Yazar: </h1>
 						<span>{blog.author.username}</span>
 					</div>
 				</div>

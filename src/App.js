@@ -5,9 +5,8 @@ import MainLayout from './pages/layouts/MainLayout'
 import ScrollToTop from './components/ScrollToTop'
 import { useEffect } from 'react'
 import { store } from './store'
-import { fetchConfig, fetchNavbar } from './store/config'
+import { fetchConfig } from './store/config'
 import Loader from './components/loader'
-import { findPageName } from './helper'
 
 const About = React.lazy(() => import('./pages/about'))
 const Home = React.lazy(() => import('./pages/home'))

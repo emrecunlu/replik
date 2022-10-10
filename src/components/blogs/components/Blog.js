@@ -47,7 +47,7 @@ function Blog({ blog }) {
 					<p>{blog.meta_desc}</p>
 				</div>
 				<div className="blog-details">
-					<Link to={'/blog/' + blog.slug}>Read More</Link>
+					<Link to={'/blog/' + blog.slug}>Daha Fazla</Link>
 				</div>
 			</div>
 		</article>

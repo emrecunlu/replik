@@ -9,7 +9,7 @@ function About() {
     return (
         <>
             <Seo title="Replik Yazılım | Hakkımızda" />
-            <HeroBackground title="About Us" breadcrumb={['Home', 'About Us']}/>
+            <HeroBackground title="Hakkımızda" breadcrumb={['Anasayfa', 'Hakkımızda']}/>
             <Company/>
             <Testimonial/>
             <Customers/>

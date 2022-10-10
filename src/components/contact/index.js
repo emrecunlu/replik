@@ -6,27 +6,28 @@ import toast, { Toaster } from 'react-hot-toast'
 import { formSchema } from './formSchema'
 import axios from 'axios'
 import { getCookie } from '../../helper'
+import { useEffect } from 'react'
 
 function Contact() {
 	const submitHandle = async (values, { resetForm }) => {
-		const res = await axios.post(
-			process.env.REACT_APP_ENDPOINT + '/contact/',
-			JSON.stringify({
-				...values,
-				csrftoken: getCookie('csrftoken'),
-			}),
-			{
-				headers: {
-					'Content-Type': 'application/json',
-				},
-			}
-		)
+		try {
+			const res = await axios.post(
+				process.env.REACT_APP_ENDPOINT + '/contact/',
+				JSON.stringify({
+					...values,
+					csrftoken: getCookie('csrftoken'),
+				}),
+				{
+					headers: {
+						'Content-Type': 'application/json',
+					},
+				}
+			)
 
-		if (res?.status === 201 || res?.status === 200)
-			toast.success('Mesajınız iletildi!')
-		else toast.error('İletişim bilgilerinde hata!')
-
-		console.log(res.status)
+			toast.success('Mesajınız başarıyla gönderildi!');
+		} catch(err) {
+			toast.error(err.message)
+		}
 
 		resetForm()
 	}
@@ -35,8 +36,8 @@ function Contact() {
 		<>
 			<section id="contact">
 				<div className="container">
-					<h2>CONTACT US</h2>
-					<h1>Let's Talk</h1>
+					<h2>İletişim</h2>
+					<h1>Daha İyi Çözümler İçin</h1>
 					<div className="contact-form">
 						<Formik
 							initialValues={{
@@ -53,26 +54,26 @@ function Contact() {
 								<Form>
 									<div className="input-group">
 										<div className="form-element">
-											<TextInput name="name" placeholder="Your name" />
+											<TextInput name="name" placeholder="İsminiz" />
 										</div>
 										<div className="form-element">
-											<TextInput name="email" placeholder="Your email" />
+											<TextInput name="email" placeholder="E-posta Adresi" />
 										</div>
 										<div className="form-element">
-											<TextInput name="phone" placeholder="Your phone" />
+											<TextInput name="phone" placeholder="Telefon Numarası" />
 										</div>
 										<div className="form-element">
-											<TextInput name="subject" placeholder="Your subhect" />
+											<TextInput name="subject" placeholder="Konu" />
 										</div>
 										<div className="form-element element-full">
 											<RichTextInput
 												name="message"
-												placeholder="Your message"
+												placeholder="Mesajınız"
 											/>
 										</div>
 										<div className="form-element element-full">
 											<button type="submit" className="contact-button">
-												Send Message
+												Gönder
 											</button>
 										</div>
 									</div>
@@ -82,12 +83,7 @@ function Contact() {
 					</div>
 				</div>
 			</section>
-			<Toaster
-				toastOptions={{
-					duration: 5000,
-				}}
-				position="top-right"
-			/>
+			
 		</>
 	)
 }

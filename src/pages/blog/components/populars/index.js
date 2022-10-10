@@ -22,7 +22,7 @@ function Populars() {
 		return (
 			<div className="popular-wrapper">
 				<div className="wrapper-title">
-					<h1>Last Post</h1>
+					<h1>Son Eklenenler</h1>
 				</div>
 				<div className="popular-posts">
 					{data.results.map((blog) => (

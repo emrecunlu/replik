@@ -28,8 +28,8 @@ function Testimonial() {
 		<section ref={setElement} id="testimonial">
 			{!isLoading && (
 				<div className="container">
-					<h2>TESTIMONIAL</h2>
-					<h1>What Our Client Say</h1>
+					<h2>Görüşleriniz</h2>
+					<h1>Değerli Yorumlarınız</h1>
 					<Swiper
 						slidesPerView={3}
 						spaceBetween={50}

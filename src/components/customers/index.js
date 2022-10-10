@@ -29,8 +29,8 @@ function Customers() {
 	return (
 		<section ref={setElement} id="customers">
 			<div className="container">
-				<h2>TRUSTED BY OVER 40,000</h2>
-				<h1>Our Customers</h1>
+				<h2>Müşterilerimiz</h2>
+				<h1>Güvenilir Müşterilerimiz</h1>
 				<div className="customer-slides">
 					{!isLoading && (
 						<Swiper

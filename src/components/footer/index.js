@@ -38,16 +38,16 @@ function Footer() {
 					<div className="footer-subscribe">
 						<div className="container">
 							<div className="sub-text">
-								<h1>Sign Up Our Newsletter</h1>
+								<h1>Yeni Haberlerden Haberdar Ol!</h1>
 								<p>
-									We Offer An Informative Monthly Technology Newsletter - Check
-									It Out.
+									Bilgilendirici Aylık Teknoloji Bülteni Sunuyoruz - Kontrol
+									Edin.
 								</p>
 							</div>
 							<div className="subscribe-input">
 								<form action="#">
-									<input type="text" placeholder="Enter your mail" />
-									<button type="submit">Subscribe</button>
+									<input type="text" placeholder="E-Posta Adresiniz" />
+									<button type="submit">Gönder</button>
 								</form>
 							</div>
 						</div>
@@ -56,20 +56,20 @@ function Footer() {
 						<div className="container">
 							<div className="footer-item big-item">
 								<div className="item-title">
-									<h1>{config.footer_about.label}</h1>
+									<h1>Hakkımızda</h1>
 								</div>
 								<div className="item-desc">
-									<p>{config.footer_about.value}</p>
+									<p>{config.description}</p>
 								</div>
 								<div className="item-socials">
 									<ul>
 										<li>
-											<Link to="/">
+											<Link to={config.facebook}>
 												<FaFacebookF size={14} />
 											</Link>
 										</li>
 										<li>
-											<Link to="/">
+											<Link to={config.twitter}>
 												<FaTwitter size={14} />
 											</Link>
 										</li>
@@ -124,7 +124,7 @@ function Footer() {
 							</div>
 							<div className="footer-item big-item">
 								<div className="item-title">
-									<h1>Contact Info</h1>
+									<h1>İletişim</h1>
 								</div>
 								<div className="items">
 									<ul>
@@ -133,8 +133,8 @@ function Footer() {
 												<AiFillPhone color="#fff" size={24} />
 											</div>
 											<div className="about">
-												<h1>{config.tel_number.label}</h1>
-												<Link to="/">{config.tel_number.value}</Link>
+												<h1>Telefon</h1>
+												<Link to="/">{config.telephone}</Link>
 											</div>
 										</li>
 										<li className="more-than">
@@ -142,8 +142,8 @@ function Footer() {
 												<AiFillMail color="#fff" size={24} />
 											</div>
 											<div className="about">
-												<h1>{config.email_address.label}</h1>
-												<Link to="/">{config.email_address.value}</Link>
+												<h1>E-Posta</h1>
+												<Link to="/">{config.email}</Link>
 											</div>
 										</li>
 										<li className="more-than">
@@ -151,8 +151,8 @@ function Footer() {
 												<BsFillPinMapFill color="#fff" size={24} />
 											</div>
 											<div className="about">
-												<h1>{config.address.label}</h1>
-												<Link to="/">{config.address.value}</Link>
+												<h1>Adres</h1>
+												<Link to="/">{config.address}</Link>
 											</div>
 										</li>
 									</ul>
@@ -162,7 +162,7 @@ function Footer() {
 					</div>
 					<div className="footer-copyright">
 						<AiOutlineCopyrightCircle size={24} color="#fafafa" />
-						<span> {config.copyright.value}</span>
+						<span> {config.copyright}</span>
 					</div>
 				</>
 			)}
